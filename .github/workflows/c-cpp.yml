@@ -12,10 +12,24 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
-    - name: make configure
-      run: make configure
-    - name: make
-      run: make
-    - name: make test
-      run: make test
+      - name: Checkout
+      - uses: actions/checkout@v2
+      - name: Checkout libevent
+      - uses: actions/checkout@master
+        with:
+          repository: libevent/libevent
+          path: ./libevent
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.7
+      - name: Install Conan
+        run: pip install conan pytest && conan --version
+      - name: Install CMake
+        run: conan install cmake/3.16.4@ -g=virtualrunen
+      - name: make configure
+        run: make configure
+      - name: make
+        run: make
+      - name: make test
+        run: make test
