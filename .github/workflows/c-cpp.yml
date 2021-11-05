@@ -19,7 +19,7 @@ jobs:
           repository: libevent/libevent
           path: ./libevent
       - name: Build libevent
-        run: cd ./libevent && ./configure && make && make install
+        run: cd ./libevent/libevent && ./configure && make && make install
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
