@@ -25,7 +25,7 @@ jobs:
       - name: Install Conan
         run: pip install conan pytest && conan --version
       - name: Install CMake
-        run: conan install cmake/3.16.4@ -g=virtualrunen
+        run: conan install cmake/3.16.4@
       - name: make configure
         run: make configure
       - name: make
