@@ -21,6 +21,9 @@ lib/libtaps_tcp.so: src/tcp/tcp.c
 bin/%.o: src/%.c
 	$(CC) $(CCFLAGS) -c $< -o $@ -lyaml -levent -ldl -fPIC -I .
 
+configure:
+	echo "configured"
+
 install: lib/libtaps.so lib/libtaps_tcp.so
 	cp lib/libtaps.so /usr/lib/x86_64-linux-gnu/
 	cp lib/libtaps_tcp.so /usr/lib/x86_64-linux-gnu/
